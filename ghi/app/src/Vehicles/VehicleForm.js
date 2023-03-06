@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-function VehiclesAdd() {
+function VehicleForm() {
     const [manufacturers, setManufacturers] = useState([]);
 
     const [formData, setFormData] = useState({
@@ -98,7 +98,7 @@ function VehiclesAdd() {
 
 
 }
-export default VehiclesAdd;
+export default VehicleForm;
 
 
 // https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/2017_Ford_Fiesta_Zetec_Turbo_1.0_Front.jpg/560px-2017_Ford_Fiesta_Zetec_Turbo_1.0_Front.jpg

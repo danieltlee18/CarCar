@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 
-function VehiclesList() {
+function VehicleList() {
   const [vehicles, setVehicles] = useState([])
 
 
@@ -63,4 +63,4 @@ useEffect(()=>{
 
   };
 
-export default VehiclesList;
+export default VehicleList;

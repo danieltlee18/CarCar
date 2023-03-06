@@ -3,7 +3,7 @@
 Team:
 
 * Dan - Sales
-* Person 2 - Which microservice?
+* Brian - Service
 
 ## Design
 
