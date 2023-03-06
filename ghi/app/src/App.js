@@ -1,8 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './MainPage';
 import Nav from './Nav';
-import VehiclesList from './VehiclesList';
-import VehiclesAdd from './VehiclesAdd';
+import MainPage from './MainPage';
+import ManufacturerList from './Manufacturers/ManufacturerList';
+import ManufacturerForm from './Manufacturers/ManufacturerForm';
+import VehicleList from './Vehicles/VehicleList';
+import VehicleForm from './Vehicles/VehicleForm';
+import AutomobileList from './Automobiles/AutomobileList';
+import AutomobileForm from './Automobiles/AutomobileForm';
 
 function App() {
   return (
@@ -11,8 +15,12 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="vehicles" element={<VehiclesList />} />
-          <Route path="vehicles/add" element={<VehiclesAdd />} />
+          <Route path="manufacturers/" element={<ManufacturerList />} />
+          <Route path="manufacturers/create" element={<ManufacturerForm />} />
+          <Route path="vehicles" element={<VehicleList />} />
+          <Route path="vehicles/create" element={<VehicleForm />} />
+          <Route path="automobiles/" element={<AutomobileList />} />
+          <Route path="automobiles/create" element={<AutomobileForm />} />
         </Routes>
       </div>
     </BrowserRouter>
