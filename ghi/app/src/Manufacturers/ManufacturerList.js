@@ -21,7 +21,7 @@ function ManufacturerList() {
 
 
     return (<>
-        {/* <Link to="/shoes/new"><button className='btn btn-primary'>Create a shoe</button></Link> */}
+        <Link to="/manufacturers/create"><button className='btn btn-primary'>Create a Manufacturer</button></Link>
         <table className="table table-striped">
             <thead>
                 <tr>
