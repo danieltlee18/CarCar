@@ -28,7 +28,22 @@ class AppointmentEncoder(ModelEncoder):
     }
 
 
-
+@require_http_methods(["GET", "POST"])
+def list_technicians(request):
+    if request.method == "GET":
+        technicians = Technician.objects.all()
+        return JsonResponse(
+            {"technicians": technicians},
+            encoder=TechnicianEncoder,
+        )
+    else:
+        content = json.loads(request.body)
+        technician = Technician.objects.create(**content)
+        return JsonResponse(
+            technician,
+            encoder=TechnicianEncoder,
+            safe=False,
+        )
 
 @require_http_methods(["GET", "POST"])
 def list_appointments(request):
@@ -44,7 +59,6 @@ def list_appointments(request):
         try:
             tech_number = content["technician"]
             tech = Technician.objects.get(employee_number=tech_number)
-            print("------------hdhhdhdhdhdhyyyy8******", tech)
             content["technician"] = tech
         except Technician.DoesNotExist:
             return JsonResponse(
@@ -62,6 +76,23 @@ def list_appointments(request):
             print('car not in inventory')
 
         appointment = Appointment.objects.create(**content)
+        return JsonResponse(
+            appointment,
+            encoder=AppointmentEncoder,
+            safe=False,
+        )
+
+
+@require_http_methods(["PUT", "DELETE"])
+def change_appointment(request, id):
+    if request.method == "DELETE":
+        count, _ = Appointment.objects.filter(id=id).delete()
+        return JsonResponse({"deleted": count > 0})
+    else:
+        content = json.loads(request.body)
+        Appointment.objects.filter(id=id).update(**content)
+        appointment = Appointment.objects.get(id=id)
+
         return JsonResponse(
             appointment,
             encoder=AppointmentEncoder,
