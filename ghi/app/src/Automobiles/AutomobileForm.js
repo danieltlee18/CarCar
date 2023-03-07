@@ -25,7 +25,7 @@ const AutomobileForm = () => {
             [e.target.name]: e.target.value
         })
     }
-    
+
     const handleModelChange = (e) => {
         setModel(e.target.value);
         setFormData({
@@ -88,7 +88,7 @@ const AutomobileForm = () => {
                                 {models.map(model => {
                                     return (
                                         <option key={model.id} value={model.id}>
-                                            {model.name}
+                                            {model.manufacturer.name}, {model.name}
                                         </option>
                                     );
                                 })}
