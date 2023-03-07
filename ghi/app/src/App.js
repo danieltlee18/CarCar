@@ -15,11 +15,11 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="manufacturers/" element={<ManufacturerList />} />
+          <Route path="manufacturers" element={<ManufacturerList />} />
           <Route path="manufacturers/create" element={<ManufacturerForm />} />
           <Route path="vehicles" element={<VehicleList />} />
           <Route path="vehicles/create" element={<VehicleForm />} />
-          <Route path="automobiles/" element={<AutomobileList />} />
+          <Route path="automobiles" element={<AutomobileList />} />
           <Route path="automobiles/create" element={<AutomobileForm />} />
         </Routes>
       </div>
