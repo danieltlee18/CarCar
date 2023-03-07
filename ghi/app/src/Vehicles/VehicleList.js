@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom'
 
 function VehicleList() {
   const [vehicles, setVehicles] = useState([])
@@ -38,6 +38,10 @@ useEffect(()=>{
 
 
   return (
+    <>
+    <h1>Vehicles</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+     <Link to="/vehicles/create"><button className='btn btn-primary'>Create a vehicle model!</button></Link></div>
     <table className="table table-striped">
       <thead>
         <tr>
@@ -59,6 +63,7 @@ useEffect(()=>{
         })}
       </tbody>
     </table>
+    </>
   );
 
   };
