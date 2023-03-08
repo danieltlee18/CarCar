@@ -31,9 +31,7 @@ function CustomerForm() {
                 'Content-Type': 'application/json',
             }
         };
-        console.log(fetchConfig)
         const response = await fetch(customersUrl, fetchConfig)
-        console.log(response)
         if (response.ok) {
             setFormData({
                 name: "",

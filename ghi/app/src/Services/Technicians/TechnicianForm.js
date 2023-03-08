@@ -19,7 +19,6 @@ const TechnicianForm = () => {
                 "Content-Type": "application/json"
             }
         };
-        console.log(fetchConfig)
 
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
