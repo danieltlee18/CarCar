@@ -33,10 +33,7 @@ function SalesForm() {
         'Content-Type': 'application/json',
       }
     };
-    console.log(fetchConfig)
-    console.log("This is the form data", formData)
     const response = await fetch(saleRecordUrl, fetchConfig)
-    console.log(response)
     if (response.ok) {
       setFormData({
         automobile: "",

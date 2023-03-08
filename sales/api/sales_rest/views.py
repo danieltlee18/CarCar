@@ -1,44 +1,8 @@
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
-from decimal import Decimal
-from common.json import ModelEncoder
 from .models import SaleRecord, SalesPerson, Customer, AutomobileVO
-
-class CustomJsonEncoder(ModelEncoder):
-    def default(self, obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        return super().default(obj)
-
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = ["vin", "import_href", "id"]
-
-
-class SalesPersonEncoder(ModelEncoder):
-    model = SalesPerson
-    properties = ["name", "employee_id", "id"]
-
-
-class CustomerEncoder(ModelEncoder):
-    model = Customer
-    properties = ["name", "address", "phone_number", "id"]
-
-
-class SaleRecordEncoder(ModelEncoder):
-    model = SaleRecord
-    properties = ["id", "automobile", "sales_person", "customer", "price"]
-    encoders = {
-        "automobile": AutomobileVOEncoder(),
-        "sales_person": SalesPersonEncoder(),
-        "customer": CustomerEncoder(),
-    }
-    def default(self, obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        return super().default(obj)
-
+from .encoders import CustomerEncoder, SalesPersonEncoder, SaleRecordEncoder
 
 @require_http_methods(["GET"])
 def api_show_customers(request, customer_id=None):
@@ -127,7 +91,6 @@ def api_show_sales(request, sale_id):
             sale = SaleRecord.objects.all()
         else:
             sale = SaleRecord.objects.get(id=sale_id)
-            print(sale)
         return JsonResponse(
             sale,
             encoder=SaleRecordEncoder,
@@ -142,21 +105,14 @@ def api_show_sales(request, sale_id):
 @require_http_methods(["POST"])
 def api_create_sale(request):
     content = json.loads(request.body)
-    print(content)
     automobile_id = content.get("automobile")
     sales_person_id = content.get("sales_person")
     customer_id = content.get("customer")
     price = content.get("price")
-    print(f"automobile_id={automobile_id}")
-    print(f"sales_person_id={sales_person_id}")
-    print(f"customer_id={customer_id}")
     try:
         automobile = AutomobileVO.objects.get(id=automobile_id)
         sales_person = SalesPerson.objects.get(id=sales_person_id)
         customer = Customer.objects.get(id=customer_id)
-        print(f'automobileTEST: {automobile}')
-        print(f'sales_person: {sales_person}')
-        print(f'customer: {customer}')
     except (AutomobileVO.DoesNotExist, SalesPerson.DoesNotExist, Customer.DoesNotExist):
         return JsonResponse(
             {"message": "Invalid automobile, sales person, or customer id"},

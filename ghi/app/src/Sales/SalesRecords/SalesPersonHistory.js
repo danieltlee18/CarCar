@@ -10,7 +10,6 @@ function SalesPersonHistory() {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       setSales(data)
     }
   }

@@ -70,11 +70,9 @@ def list_appointments(request):
         try:
             incoming_vin = content["vin"]
             vip = AutomobileVO.objects.get(vin=incoming_vin)
-            print('car is in inventory')
             content["vip"] = 'Yes'
         except AutomobileVO.DoesNotExist:
             content["vip"] = 'No'
-            print('car not in inventory')
 
         appointment = Appointment.objects.create(**content)
         return JsonResponse(

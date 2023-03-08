@@ -19,24 +19,6 @@ useEffect(()=>{
 }, [])
 
 
-  // const handleDelete = async (e) => {
-  //   const url = `http://localhost:8100/api/models/${e.target.id}/`
-
-  //   const fetchConfigs = {
-  //       method: "Delete",
-  //       headers: {
-  //           "Content-Type": "application/json"
-  //       }
-  //   }
-
-  //   not sure these are needed //const response = await fetch(url, fetchConfigs)
-  //   not sure these are needed // const data = await response.json()
-
-  //   setShoes(shoes.filter(shoe => String(shoe.pk) !== e.target.id))
-  //   };
-
-
-
   return (
     <>
     <h1>Vehicles</h1>
