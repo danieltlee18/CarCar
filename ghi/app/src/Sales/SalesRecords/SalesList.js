@@ -23,7 +23,7 @@ function SalesList() {
     return (<>
         <h1>Sales</h1>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/sales/create/"><button className='btn btn-primary'>Create a Employee!</button></Link>
+        <Link to="/sales/create/"><button className='btn btn-primary'>Record a new sale!</button></Link>
         </div>
         <table className="table table-striped">
             <thead>
