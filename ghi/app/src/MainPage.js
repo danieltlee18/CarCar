@@ -7,6 +7,8 @@ function MainPage() {
           The premiere solution for automobile dealership
           management!
         </p>
+        <img src="https://www.maxpixel.net/static/photo/1x/Green-Old-Classic-Car-Renault-8-4699203.png" alt="Green-Classic-Renault" width="500"/>
+        <img />
       </div>
     </div>
   );
