@@ -9,10 +9,9 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "service_project.settings")
 django.setup()
 
-# Import models from service_rest, here.
-# from service_rest.models import Something
 
-from service_rest.models import AutomobileVO
+from service_rest.models import AutomobileVO  # noqa: E402
+
 
 def get_autos():
     url = "http://inventory-api:8000/api/automobiles/"
@@ -34,6 +33,7 @@ def poll():
             print(e, file=sys.stderr)
 
         time.sleep(60)
+
 
 if __name__ == "__main__":
     poll()

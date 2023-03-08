@@ -11,6 +11,7 @@ import TechnicianForm from './Services/Technicians/TechnicianForm';
 import TechnicianList from './Services/Technicians/TechnicianList';
 import AppointmentList from './Services/Appointments/AppointmentList';
 import AppointmentRecords from './Services/Appointments/AppointmentRecords';
+import AppointmentForm from './Services/Appointments/AppointmentForm';
 import CustomerForm from './Sales/Customer/CustomerForm';
 import CustomerList from './Sales/Customer/CustomerList';
 import EmployeeList from './Sales/Employee/EmployeeList';
@@ -38,6 +39,9 @@ function App() {
 
           <Route path="services/appointments" element={<AppointmentList />} />
           <Route path="services/appointments/records" element={<AppointmentRecords />} />
+          <Route path="services/appointments/create" element={<AppointmentForm />} />
+
+
           <Route path="customers/" element={<CustomerList />} />
           <Route path="customers/create" element={<CustomerForm />} />
           <Route path="employees/" element={<EmployeeList />} />

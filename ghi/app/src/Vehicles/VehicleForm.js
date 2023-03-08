@@ -99,11 +99,3 @@ function VehicleForm() {
 
 }
 export default VehicleForm;
-
-
-// https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/2017_Ford_Fiesta_Zetec_Turbo_1.0_Front.jpg/560px-2017_Ford_Fiesta_Zetec_Turbo_1.0_Front.jpg
-// Fiesta
-
-// "name": "Accord",
-// "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Honda_Accord_%28CV3%29_EX_eHEV%2C_2021%2C_front.jpg/560px-Honda_Accord_%28CV3%29_EX_eHEV%2C_2021%2C_front.jpg",
-// "manufacturer_id": 2
