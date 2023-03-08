@@ -97,10 +97,8 @@ function mapWords(s){
                     .map(appointment => {
                     let raw_time = new Date(appointment.time);
                     let d = raw_time.toLocaleDateString("en-US");
-                    let rowFeature = "Default";
-                    appointment.vip === 'Yes'? rowFeature="table-warning": rowFeature="Default";
                     return (
-                            <tr className={rowFeature} key={appointment.pk}>
+                            <tr key={appointment.pk}>
                             <td>{appointment.vin}</td>
                             <td>{appointment.owner}</td>
                             <td>{d}</td>

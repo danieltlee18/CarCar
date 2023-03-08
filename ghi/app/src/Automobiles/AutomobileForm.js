@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
+
 
 const AutomobileForm = () => {
     const [formData, setFormData] = useState({
@@ -16,7 +18,6 @@ const AutomobileForm = () => {
         if (response.ok) {
             const data = await response.json();
             setModels(data.models)
-            console.log(data)
         }
     }
     const handleFormChange = (e) => {
@@ -36,8 +37,6 @@ const AutomobileForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData.model_id)
-        console.log(formData)
         const url = 'http://localhost:8100/api/automobiles/'
         const fetchConfig = {
             method: 'post',
@@ -67,7 +66,7 @@ const AutomobileForm = () => {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Create a new Automobile</h1>
+                    <h1>Add an automobile</h1>
                     <form id="create-shoe-form" onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                             <input required value={formData.color} className="form-control" name="color" id="color" type="text" onChange={handleFormChange} />
@@ -82,7 +81,7 @@ const AutomobileForm = () => {
                             <label htmlFor="vin">VIN</label>
                         </div>
                         <div className='mb-3'>
-                            <select required value={model} className="form-select" onChange={handleModelChange}>
+                            <select required value={formData.model_id} className="form-select" onChange={handleModelChange}>
                                 <option value="">Choose a Model</option>
                                 {models.map(model => {
                                     return (
@@ -96,6 +95,7 @@ const AutomobileForm = () => {
                         <button className="btn btn-primary">Create</button>
                     </form>
                 </div>
+                <Link to="/automobiles" className="link">Back to automobiles</Link>
             </div>
         </div>
         </>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 const TechnicianForm = () => {
     const [formData, setFormData] = useState({
@@ -53,6 +54,7 @@ const TechnicianForm = () => {
                         <button className="btn btn-primary">Create</button>
                     </form>
                 </div>
+                <Link to="/services/technicians" className="link">Back to technicians</Link>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom'
 
 function AppointmentForm() {
     const [technicians, setTechnicians] = useState([]);
@@ -105,6 +105,7 @@ function AppointmentForm() {
             </form>
 
           </div>
+          <Link to="/services/appointments" className="link">Back to appointments</Link>
         </div>
       </div>
     );

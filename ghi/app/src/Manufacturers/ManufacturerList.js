@@ -22,7 +22,7 @@ function ManufacturerList() {
     return (<>
         <h1>Manufacturers</h1>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/manufacturers/create"><button className='btn btn-primary'>Create a manufacturer!</button></Link>
+        <Link to="/manufacturers/create"><button className='btn btn-primary btn-sm'>Add manufacturer!</button></Link>
         </div>
         <table className="table table-striped">
             <thead>

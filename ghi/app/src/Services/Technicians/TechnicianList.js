@@ -22,7 +22,7 @@ function TechnicianList() {
     return (<>
         <h1>Technicians</h1>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/services/technicians/create"><button className='btn btn-primary'>Create a technician!</button></Link>
+        <Link to="/services/technicians/create"><button className='btn btn-primary btn-sm'>Create a technician!</button></Link>
         </div>
         <table className="table table-striped">
             <thead>

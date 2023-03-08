@@ -22,7 +22,7 @@ function CustomerList() {
     return (<>
         <h1>Customers</h1>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/customers/create/"><button className='btn btn-primary'>Create a Customer!</button></Link>
+        <Link to="/customers/create/"><button className='btn btn-primary btn-sm'>Add customer!</button></Link>
         </div>
         <table className="table table-striped">
             <thead>

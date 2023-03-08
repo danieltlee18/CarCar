@@ -22,7 +22,7 @@ function EmployeeList() {
     return (<>
         <h1>Employees</h1>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/employees/create/"><button className='btn btn-primary'>Create a Employee!</button></Link>
+        <Link to="/employees/create/"><button className='btn btn-primary btn-sm'>Create a Employee!</button></Link>
         </div>
         <table className="table table-striped">
             <thead>

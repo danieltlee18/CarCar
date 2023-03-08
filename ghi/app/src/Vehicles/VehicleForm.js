@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom'
 
 function VehicleForm() {
     const [manufacturers, setManufacturers] = useState([]);
@@ -63,7 +63,7 @@ function VehicleForm() {
 
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Create a vehicle model</h1>
+            <h1>Add a vehicle model</h1>
             <form onSubmit={handleSubmit} id="create-vehicle-form">
 
               <div className="form-floating mb-3">
@@ -91,6 +91,7 @@ function VehicleForm() {
             </form>
 
           </div>
+          <Link to="/vehicles" className="link">Back to vehicles</Link>
         </div>
       </div>
     );

@@ -20,10 +20,12 @@ import SalesList from './Sales/SalesRecords/SalesList';
 import SalesForm from './Sales/SalesRecords/SalesForm';
 import SalesPersonHistory from './Sales/SalesRecords/SalesPersonHistory';
 
+
 function App() {
-  return (
+  return (<>
+
     <BrowserRouter>
-      <Nav />
+      <Nav/>
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -36,7 +38,6 @@ function App() {
 
           <Route path="services/technicians" element={<TechnicianList />} />
           <Route path="services/technicians/create" element={<TechnicianForm />} />
-
           <Route path="services/appointments" element={<AppointmentList />} />
           <Route path="services/appointments/records" element={<AppointmentRecords />} />
           <Route path="services/appointments/create" element={<AppointmentForm />} />
@@ -51,7 +52,7 @@ function App() {
           <Route path="sales/history/" element={<SalesPersonHistory />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </BrowserRouter></>
   );
 }
 

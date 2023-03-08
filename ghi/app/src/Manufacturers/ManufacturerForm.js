@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 const ManufacturerForm = () => {
     const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const ManufacturerForm = () => {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Create a new manufacturer</h1>
+                    <h1>Add a manufacturer</h1>
                     <form onSubmit={handleSubmit} id="Create-Manufacturer-Form">
                         <div className="form-floating mb-3">
                             <input value={formData.name} onChange={handleFormChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -46,6 +47,7 @@ const ManufacturerForm = () => {
                         <button className="btn btn-primary">Create</button>
                     </form>
                 </div>
+                <Link to="/manufacturers" className="link">Back to manufacturers</Link>
             </div>
         </div>
     )

@@ -23,7 +23,7 @@ useEffect(()=>{
     <>
     <h1>Vehicles</h1>
     <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-     <Link to="/vehicles/create"><button className='btn btn-primary'>Create a vehicle model!</button></Link></div>
+     <Link to="/vehicles/create"><button className='btn btn-primary btn-sm'>Add vehicle model!</button></Link></div>
     <table className="table table-striped">
       <thead>
         <tr>
@@ -40,7 +40,7 @@ useEffect(()=>{
             <tr key={vehicle.id}>
               <td>{ vehicle.name }</td>
               <td>{vehicle.manufacturer.name}</td>
-              <td><img src={vehicle.picture_url} alt={alter_text} width="200"/></td></tr>
+              <td><img src={vehicle.picture_url} alt={alter_text} width="150"/></td></tr>
           );
         })}
       </tbody>
