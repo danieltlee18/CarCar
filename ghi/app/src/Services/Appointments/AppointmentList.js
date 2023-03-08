@@ -58,7 +58,9 @@ function AppointmentList() {
     return (<>
        <h1>Appointments</h1>
        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-      <Link to="/services/appointments/create"><button className='btn btn-primary btn-sm'>Create an appointment!</button></Link></div>
+      <Link to="/services/appointments/create"><button className='btn btn-primary btn-sm'>Create an appointment!</button></Link>
+      </div>
+      <div>
         <table className="table table-striped table-sm">
             <thead>
                 <tr>
@@ -80,9 +82,12 @@ function AppointmentList() {
                     let raw_time = new Date(appointment.time)
                     let d = raw_time.toLocaleDateString("en-US")
                     let t = raw_time.toLocaleTimeString("en-US")
+                    let rowFeature = "Default";
+                    appointment.vip === 'Yes'? rowFeature="table-warning": rowFeature="Default";
+
                     return (
-                        <tr key={appointment.pk}>
-                            <td><button onClick={handleFinished} id={appointment.pk} className="btn btn-success">Finished</button></td>
+                        <tr className={rowFeature} key={appointment.pk}>
+                            <td><button onClick={handleFinished} id={appointment.pk} className="btn btn-success btn-sm">Finished</button></td>
                             <td>{appointment.vin}</td>
                             <td>{appointment.owner}</td>
                             <td>{d}</td>
@@ -90,12 +95,13 @@ function AppointmentList() {
                             <td>{appointment.technician.name}</td>
                             <td>{appointment.reason}</td>
                            <td>{appointment.vip}</td>
-                           <td><button onClick={handleCancel} id={appointment.pk} className="btn btn-danger">Cancel</button></td>
+                           <td><button onClick={handleCancel} id={appointment.pk} className="btn btn-danger btn-sm">Cancel</button></td>
                         </tr>
                     );
                 })}
             </tbody>
         </table>
+        </div>
     </>)
 }
 
