@@ -1,32 +1,8 @@
-
 from django.views.decorators.http import require_http_methods
 from .models import Appointment, Technician, AutomobileVO
 import json
 from django.http import JsonResponse
-from common.json import ModelEncoder
-
-
-
-class TechnicianEncoder(ModelEncoder):
-    model = Technician
-    properties = ["name", "employee_number"]
-
-
-class AppointmentEncoder(ModelEncoder):
-    model = Appointment
-    properties = [
-                "pk",
-                "vin",
-                "owner",
-                "time",
-                "reason",
-                "completed",
-                "technician",
-                "vip",
-                ]
-    encoders = {
-        "technician": TechnicianEncoder(),
-    }
+from .encoders import TechnicianEncoder, AppointmentEncoder
 
 
 @require_http_methods(["GET", "POST"])
@@ -45,6 +21,7 @@ def list_technicians(request):
             encoder=TechnicianEncoder,
             safe=False,
         )
+
 
 @require_http_methods(["GET", "POST"])
 def list_appointments(request):
@@ -66,16 +43,12 @@ def list_appointments(request):
                 {"message": "Invalid employee number"},
                 status=400,
             )
-
         try:
             incoming_vin = content["vin"]
-            vip = AutomobileVO.objects.get(vin=incoming_vin)
-            print('car is in inventory')
+            AutomobileVO.objects.get(vin=incoming_vin)
             content["vip"] = 'Yes'
         except AutomobileVO.DoesNotExist:
             content["vip"] = 'No'
-            print('car not in inventory')
-
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
             appointment,

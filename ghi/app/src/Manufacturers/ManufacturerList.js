@@ -11,7 +11,6 @@ function ManufacturerList() {
         if (response.ok) {
             const data = await response.json();
             setManufacturers(data.manufacturers)
-            console.log(data)
         }
     }
 

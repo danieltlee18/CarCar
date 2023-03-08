@@ -11,7 +11,7 @@ django.setup()
 
 # Import models from sales_rest, here.
 # from sales_rest.models import Something
-from sales_rest.models import AutomobileVO
+from sales_rest.models import AutomobileVO  # noqa: E402
 
 def get_automobiles():
     response = requests.get("http://inventory-api:8000/api/automobiles/")
