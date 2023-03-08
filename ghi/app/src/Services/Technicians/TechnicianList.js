@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function ManufacturerList() {
-    const [manufacturers, setManufacturers] = useState([]);
+function TechnicianList() {
+    const [technicians, setTechnicians] = useState([]);
 
     const fetchData = async () => {
-        const url = 'http://localhost:8100/api/manufacturers/'
+        const url = 'http://localhost:8080/service_rest/technicians/'
 
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            setManufacturers(data.manufacturers)
-            console.log(data)
+            setTechnicians(data.technicians)
         }
     }
 
@@ -21,21 +20,23 @@ function ManufacturerList() {
 
 
     return (<>
-        <h1>Manufacturers</h1>
+        <h1>Technicians</h1>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/manufacturers/create"><button className='btn btn-primary'>Create a manufacturer!</button></Link>
+        <Link to="/services/technicians/create"><button className='btn btn-primary'>Create a technician!</button></Link>
         </div>
         <table className="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th key="name">Name</th>
+                    <th key="employee_number">Employee number</th>
                 </tr>
             </thead>
             <tbody>
-                {manufacturers.map(manufacturer => {
+                {technicians.map(technician => {
                     return (
-                        <tr key={manufacturer.id}>
-                            <td>{manufacturer.name}</td>
+                        <tr key={technician.employee_number}>
+                            <td>{technician.name}</td>
+                            <td>{technician.employee_number}</td>
                         </tr>
                     );
                 })}
@@ -45,4 +46,4 @@ function ManufacturerList() {
     );
 }
 
-export default ManufacturerList;
+export default TechnicianList;

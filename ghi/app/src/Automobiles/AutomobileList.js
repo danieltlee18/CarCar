@@ -22,7 +22,7 @@ function AutomobileList() {
 
     return (<>
        <h1>Automobiles</h1>
-       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
         <Link to="/automobiles/create"><button className='btn btn-primary'>Create an automobile!</button></Link></div>
         <table className="table table-striped">
             <thead>

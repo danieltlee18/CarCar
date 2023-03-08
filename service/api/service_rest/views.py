@@ -15,6 +15,7 @@ class TechnicianEncoder(ModelEncoder):
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
+                "pk",
                 "vin",
                 "owner",
                 "time",
@@ -70,9 +71,9 @@ def list_appointments(request):
             incoming_vin = content["vin"]
             vip = AutomobileVO.objects.get(vin=incoming_vin)
             print('car is in inventory')
-            content["vip"] = True
+            content["vip"] = 'Yes'
         except AutomobileVO.DoesNotExist:
-            content["vip"] = False
+            content["vip"] = 'No'
             print('car not in inventory')
 
         appointment = Appointment.objects.create(**content)

@@ -40,7 +40,7 @@ useEffect(()=>{
   return (
     <>
     <h1>Vehicles</h1>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div className="d-grid gap-2 d-md-flex justify-content-md-end">
      <Link to="/vehicles/create"><button className='btn btn-primary'>Create a vehicle model!</button></Link></div>
     <table className="table table-striped">
       <thead>

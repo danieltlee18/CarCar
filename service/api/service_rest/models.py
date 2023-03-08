@@ -17,7 +17,7 @@ class Appointment(models.Model):
     time = models.DateTimeField()
     reason = models.TextField()
     completed = models.BooleanField(default=False)
-    vip = models.BooleanField()
+    vip = models.CharField(max_length=10)
     technician = models.ForeignKey(
         Technician,
         related_name="assignments",
