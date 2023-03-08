@@ -12,6 +12,7 @@ const AutomobileForm = () => {
 
     const [models, setModels] = useState([])
     const [model, setModel] = useState([])
+
     const fetchData = async () => {
         const modelUrl = 'http://localhost:8100/api/models/';
         const response = await fetch(modelUrl);

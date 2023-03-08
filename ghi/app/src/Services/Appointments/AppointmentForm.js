@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 function AppointmentForm() {
     const [technicians, setTechnicians] = useState([]);
 
+
     const [formData, setFormData] = useState({
         vin: '',
         owner: '',
@@ -25,6 +26,12 @@ function AppointmentForm() {
         fetchData();
     }, []);
 
+    const handleFormChange = (e) => {
+      setFormData({
+          ...formData,
+          [e.target.name]: e.target.value
+      })
+  }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -49,17 +56,8 @@ function AppointmentForm() {
                 reason: '',
                 technician:'',
             });
+
         }
-    }
-
-    const handleFormChange = (e) => {
-        const value = e.target.value;
-        const inputName = e.target.name;
-
-        setFormData({
-            ...formData,
-            [inputName]: value
-        });
     }
 
     return (
@@ -91,11 +89,11 @@ function AppointmentForm() {
               </div>
 
               <div className="mb-3">
-              <select onChange={handleFormChange} required name="technician" id="technician" className="form-select">
+              <select value={formData.technician} onChange={handleFormChange} required name="technician" id="technician" className="form-select">
                   <option value=''>Choose a technician </option>
                   {technicians.map(technician => {
                   return (
-                  <option key={technician.employee_number} value={technician.employee_number}> {technician.name} </option>
+                  <option key={technician.pk} value={technician.employee_number}> {technician.name} </option>
                   );
                 })}
                 </select>
