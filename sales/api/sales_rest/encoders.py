@@ -33,6 +33,7 @@ class SaleRecordEncoder(ModelEncoder):
         "sales_person": SalesPersonEncoder(),
         "customer": CustomerEncoder(),
     }
+    
     def default(self, obj):
         if isinstance(obj, Decimal):
             return str(obj)
