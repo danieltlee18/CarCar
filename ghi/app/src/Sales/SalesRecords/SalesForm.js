@@ -33,6 +33,7 @@ function SalesForm() {
         'Content-Type': 'application/json',
       }
     };
+
     const response = await fetch(saleRecordUrl, fetchConfig)
     if (response.ok) {
       setFormData({
@@ -43,7 +44,6 @@ function SalesForm() {
       })
     }
   };
-
 
   return (
     <div className="row">
