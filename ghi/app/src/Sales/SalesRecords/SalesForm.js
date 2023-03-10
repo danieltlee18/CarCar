@@ -35,7 +35,7 @@ function SalesForm() {
     };
 
     const response = await fetch(saleRecordUrl, fetchConfig)
-    
+
     if (response.ok) {
       setFormData({
         automobile: "",
