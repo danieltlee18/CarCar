@@ -30,6 +30,7 @@ function EmployeeForm() {
             }
         };
         const response = await fetch(employeeUrl, fetchConfig)
+        
         if (response.ok) {
             setFormData({
                 name: "",

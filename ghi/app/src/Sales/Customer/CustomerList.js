@@ -6,8 +6,8 @@ function CustomerList() {
 
     const fetchData = async () => {
         const url = 'http://localhost:8090/api/customer/all/'
-
         const response = await fetch(url);
+
         if (response.ok) {
             const data = await response.json();
             setCustomers(data)
