@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function AppointmentRecords() {
     const [appointments, setAppointments] = useState([]);
     const [filterInput, setFilterInput] = useState(' ');
-    const [filterSelect, setFilterSelect] = useState('');
+    const [filterSelect, setFilterSelect] = useState('vin');
 
     const fetchData = async () => {
         const url = 'http://localhost:8080/service_rest/appointments/'
@@ -15,7 +15,7 @@ function AppointmentRecords() {
             setAppointments(data.appointments)
 
         }
-    }
+    };
 
     useEffect(() => {
         fetchData();
@@ -38,7 +38,8 @@ const filteredAppointments = () => {
     } else {
         return appointments.filter(appointment => {
             if (filterSelect === "technician"){
-                return appointment[filterSelect]["name"].toLowerCase().includes(filterInput.toLowerCase());
+                return appointment[filterSelect]["name"]
+                            .toLowerCase().includes(filterInput.toLowerCase());
             }
             else if (filterSelect === "time"){
                 let raw_time = new Date(appointment.time)
@@ -46,26 +47,24 @@ const filteredAppointments = () => {
                 return d.includes(filterInput)
             }
             else {
-                return appointment[filterSelect].toLowerCase().includes(filterInput.toLowerCase())
+                return appointment[filterSelect]
+                            .toLowerCase().includes(filterInput.toLowerCase())
             }
             })
         }
     };
 
 function mapWords(s){
-    if (s ===''){
-        return 'search';
-    }
-    if (s === 'owner'){
-        return 'search by customer';
-    }
-    if (s === 'time'){
-        return 'search by day';
-    }
-    else{
-        return `search by ${s}`;
-    }
-}
+        if (s === 'owner'){
+            return 'search by customer';
+        }
+        if (s === 'time'){
+            return 'search by day';
+        }
+        else {
+            return `search by ${s}`;
+        }
+    };
 
 
     return (<>
