@@ -6,8 +6,8 @@ function EmployeeList() {
 
     const fetchData = async () => {
         const url = 'http://localhost:8090/api/employee/all/'
-
         const response = await fetch(url);
+
         if (response.ok) {
             const data = await response.json();
             setEmployees(data)

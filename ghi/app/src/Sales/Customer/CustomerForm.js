@@ -32,6 +32,7 @@ function CustomerForm() {
             }
         };
         const response = await fetch(customersUrl, fetchConfig)
+        
         if (response.ok) {
             setFormData({
                 name: "",
