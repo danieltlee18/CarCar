@@ -9,12 +9,13 @@ Team:
 
 ## Service microservice
 
-I've got three models in the service context:
-    - Technician
-    - Appointment
-    - AutomobileVO
-The data for the AutomobileVOs is popolated by the data in the inventory
-microservice via the poller. This informatin is used when adding a new Appointment to check whether or not the Appoitnment should be flagged as VIP. The Appointment models are realted to the Technician models by a ForeignKey.
+There are three models in the service context:
+
+- Technician: A person who performs the service
+- Appointment: A scheduled service for a customer's automobile
+- AutomobileVO: A value object that represents an automobile's data
+
+The AutomobileVOs are populated by the inventory microservice via the poller. This data is used to flag VIP appointments based on VIN numbers. The Appointment model has a foreign key that references the Technician model.
 
 
 
