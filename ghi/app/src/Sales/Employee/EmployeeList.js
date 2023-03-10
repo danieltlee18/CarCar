@@ -29,7 +29,6 @@ function EmployeeList() {
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Unique ID</th>
                     <th>Employee ID</th>
                 </tr>
             </thead>
@@ -39,7 +38,6 @@ function EmployeeList() {
                         <tr key={employee.id}>
                             <td>{employee.name}</td>
                             <td>{employee.employee_id}</td>
-                            <td>{employee.id}</td>
                         </tr>
                     );
                 })}

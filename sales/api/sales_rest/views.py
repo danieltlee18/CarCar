@@ -114,8 +114,8 @@ def api_create_sale(request):
     customer_id = content.get("customer")
     price = content.get("price")
     try:
-        automobile = AutomobileVO.objects.get(id=automobile_id)
-        sales_person = SalesPerson.objects.get(id=sales_person_id)
+        automobile = AutomobileVO.objects.get(vin=automobile_id)
+        sales_person = SalesPerson.objects.get(employee_id=sales_person_id)
         customer = Customer.objects.get(id=customer_id)
     except (AutomobileVO.DoesNotExist, SalesPerson.DoesNotExist, Customer.DoesNotExist):
         return JsonResponse(
