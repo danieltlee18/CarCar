@@ -9,6 +9,7 @@ class CustomJsonEncoder(ModelEncoder):
             return str(obj)
         return super().default(obj)
 
+
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = ["vin", "import_href", "id"]
