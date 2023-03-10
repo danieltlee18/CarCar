@@ -102,6 +102,7 @@ def api_show_sales(request, sale_id):
             status = 404
         )
 
+
 @require_http_methods(["POST"])
 def api_create_sale(request):
     content = json.loads(request.body)
@@ -110,8 +111,8 @@ def api_create_sale(request):
     customer_id = content.get("customer")
     price = content.get("price")
     try:
-        automobile = AutomobileVO.objects.get(id=automobile_id)
-        sales_person = SalesPerson.objects.get(id=sales_person_id)
+        automobile = AutomobileVO.objects.get(vin=automobile_id)
+        sales_person = SalesPerson.objects.get(employee_id=sales_person_id)
         customer = Customer.objects.get(id=customer_id)
     except (AutomobileVO.DoesNotExist, SalesPerson.DoesNotExist, Customer.DoesNotExist):
         return JsonResponse(
@@ -129,3 +130,32 @@ def api_create_sale(request):
         encoder=SaleRecordEncoder,
         safe=False,
     )
+
+
+# @require_http_methods(["POST"])
+# def api_create_sale(request):
+#     content = json.loads(request.body)
+#     automobile_id = content.get("automobile")
+#     sales_person_id = content.get("sales_person")
+#     customer_id = content.get("customer")
+#     price = content.get("price")
+#     try:
+#         automobile = AutomobileVO.objects.get(id=automobile_id)
+#         sales_person = SalesPerson.objects.get(id=sales_person_id)
+#         customer = Customer.objects.get(id=customer_id)
+#     except (AutomobileVO.DoesNotExist, SalesPerson.DoesNotExist, Customer.DoesNotExist):
+#         return JsonResponse(
+#             {"message": "Invalid automobile, sales person, or customer id"},
+#             status=400,
+#         )
+#     sale = SaleRecord.objects.create(
+#         automobile=automobile,
+#         sales_person=sales_person,
+#         customer=customer,
+#         price=price,
+#     )
+#     return JsonResponse(
+#         sale,
+#         encoder=SaleRecordEncoder,
+#         safe=False,
+#     )

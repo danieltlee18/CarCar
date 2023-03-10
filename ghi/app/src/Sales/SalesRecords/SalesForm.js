@@ -52,11 +52,11 @@ function SalesForm() {
           <h1>Create a new Sale Record</h1>
           <form onSubmit={handleSubmit} id="create-sale-record-form">
             <div className="form-floating mb-3">
-              <input value={formData.automobile} onChange={handleFormChange} placeholder="Automobile ID" required type="number" name="automobile" id="automobile" className="form-control" />
+              <input value={formData.automobile} onChange={handleFormChange} placeholder="Automobile ID" required type="text" name="automobile" id="automobile" className="form-control" />
               <label htmlFor="automobile">Automobile ID</label>
             </div>
             <div className="form-floating mb-3">
-              <input value={formData.sales_person} onChange={handleFormChange} placeholder="Sales Person ID" required type="number" name="sales_person" id="sales_person" className="form-control" />
+              <input value={formData.sales_person} onChange={handleFormChange} placeholder="Sales Person ID" required type="text" name="sales_person" id="sales_person" className="form-control" />
               <label htmlFor="sales_person">Sales Person ID</label>
             </div>
             <div className="form-floating mb-3">
