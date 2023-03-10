@@ -30,6 +30,7 @@ function CustomerList() {
                     <th>Name</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th>Customer ID</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +40,7 @@ function CustomerList() {
                             <td>{customer.name}</td>
                             <td>{customer.address}</td>
                             <td>{customer.phone_number}</td>
+                            <td>{customer.id}</td>
                         </tr>
                     );
                 })}

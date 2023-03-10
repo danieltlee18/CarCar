@@ -11,6 +11,7 @@ function EmployeeList() {
         if (response.ok) {
             const data = await response.json();
             setEmployees(data)
+            console.log(data)
         }
     }
 

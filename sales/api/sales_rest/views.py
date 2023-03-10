@@ -4,6 +4,7 @@ import json
 from .models import SaleRecord, SalesPerson, Customer, AutomobileVO
 from .encoders import CustomerEncoder, SalesPersonEncoder, SaleRecordEncoder
 
+
 @require_http_methods(["GET"])
 def api_show_customers(request, customer_id=None):
     try:
@@ -75,6 +76,7 @@ def api_create_sales_person(request):
         safe=False,
     )
 
+
 @require_http_methods(["GET"])
 def api_show_all_sales(request):
     sales = SaleRecord.objects.all()
@@ -83,6 +85,7 @@ def api_show_all_sales(request):
         encoder=SaleRecordEncoder,
         safe=False,
     )
+
 
 @require_http_methods(["GET"])
 def api_show_sales(request, sale_id):

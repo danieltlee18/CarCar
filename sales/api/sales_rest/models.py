@@ -6,12 +6,14 @@ class AutomobileVO(models.Model):
     vin = models.TextField(max_length=50)
     import_href = models.TextField(max_length=200)
 
+
 class SalesPerson(models.Model):
     name = models.TextField(max_length=50)
     employee_id = models.TextField(max_length=50)
 
     def __str__(self):
         return f'{self.name} ({self.employee_id})'
+
 
 class Customer(models.Model):
     name = models.TextField(max_length=50)
@@ -20,6 +22,7 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class SaleRecord(models.Model):
     automobile = models.ForeignKey(

@@ -65,8 +65,11 @@ function Nav() {
         <NavLink className="nav-link" to="/sales/create/">Record sale</NavLink>
           <NavLink className="nav-link" to="/sales">Sales history</NavLink>
           <div className="dropdown-divider"></div>
-          <NavLink className="nav-link" to="employees/create/">Add employee</NavLink>
           <NavLink className="nav-link" to="/customers/create">Add customer</NavLink>
+          <NavLink className="nav-link" to="/customers/">Customers</NavLink>
+          <div className="dropdown-divider"></div>
+          <NavLink className="nav-link" to="employees/create/">Add employee</NavLink>
+          <NavLink className="nav-link" to="/employees/">Employees</NavLink>
           <NavLink className="nav-link" to="/sales/history">Employee history</NavLink>
         </div>
     </div>
